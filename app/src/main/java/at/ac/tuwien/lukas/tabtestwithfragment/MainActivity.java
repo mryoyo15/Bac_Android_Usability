@@ -1,6 +1,5 @@
 package at.ac.tuwien.lukas.tabtestwithfragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -14,7 +13,7 @@ import android.widget.ProgressBar;
 public class MainActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
-
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
@@ -58,11 +57,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
-    public ProgressBar getProgressBar(){
+
+    public ProgressBar getProgressBar() {
         return progressBar;
     }
+
+    public ViewPager getViewPager() {
+        return viewPager;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
